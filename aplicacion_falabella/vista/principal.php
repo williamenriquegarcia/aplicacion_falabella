@@ -41,30 +41,36 @@
       </nav>
 
       <section>
-        <h3>Filtrar por edad</h3>
-        <label for="limiteInferior" class="browser-default">Mayor que</label>
-        <input type="number" name="limiteInferior" class="browser-default" id="limiteInferior">
-        <label for="limiteInferior" class="browser-default">Menor que</label>
-        <input type="number" class="browser-default" name="limiteSuperior" id="limiteSuperior">
-        <button id="filtro">Filtrar</button>
-        <table id="tabla">
-          <tr>
-            <th>Edad</th>
-            <th>aspartato–aminotransferasa</th>
-            <th>Fosfatasa alcalina</th>
-            <th>Alanina aminotrasferasa</th>
-          </tr>
-          <?php
-            if (isset($_SESSION['nombres']))
-            { 
-              include '../controlador/principal.php';
-            }
-            else
-            {
-              echo "No hay sesión vigente, registrate o logueate";
-            }
-          ?>
-        </table>  
+        
+            <?php
+              if (isset($_SESSION['nombres']))
+              { 
+                ?>
+                <h3>Filtrar por edad</h3>
+                <label for="limiteInferior" class="browser-default">Mayor que</label>
+                <input type="number" name="limiteInferior" class="browser-default" id="limiteInferior">
+                <label for="limiteInferior" class="browser-default">Menor que</label>
+                <input type="number" class="browser-default" name="limiteSuperior" id="limiteSuperior">
+                <button id="filtro">Filtrar</button>
+                <button id="reporte">Generar reporte</button>
+                <div id="divTabla">
+                  <table id="tabla">
+                    <tr>
+                      <th>Edad</th>
+                      <th>aspartato</th>
+                      <th>Fosfatasa</th>
+                      <th>Alanina</th>
+                    </tr>
+                <?
+                include '../controlador/principal.php';
+              }
+              else
+              {
+                echo "No hay sesión vigente, registrate o logueate";
+              }
+            ?>
+          </table>
+        </div>  
       </section>      
       
       <footer class="page-footer">
@@ -80,7 +86,9 @@
       <!--Librerias javascript de materialize-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
       <script src="js/cerrar.js"></script>
       <script src="js/filtrar.js"></script>
+      <script src="js/generarReporte.js"></script>
     </body>
   </html>

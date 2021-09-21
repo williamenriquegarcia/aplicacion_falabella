@@ -1,5 +1,6 @@
 <?
 require '../modelo/conexion.php';
+include '../modelo/conexion.php';
 
 $limiteInferior = $_POST["limiteInferior"];
 $limiteSuperior = $_POST["limiteSuperior"];
@@ -13,9 +14,9 @@ if ($result)
 	?>
 	<tr>
 		<th>Edad</th>
-        <th>aspartato–aminotransferasa</th>
-        <th>Fosfatasa alcalina</th>
-        <th>Alanina aminotrasferasa</th>
+        <th>aspartato</th>
+        <th>Fosfatasa</th>
+        <th>Alanina	</th>
     </tr>
     <?
 	while ($fila = $result->fetch_row()) 
