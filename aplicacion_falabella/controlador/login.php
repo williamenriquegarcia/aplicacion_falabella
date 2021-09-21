@@ -6,7 +6,7 @@ $email = $_POST["email"];
 $clave = $_POST["clave"];
 
 mysqli_select_db ($conn,"aplicacion");
-$query = 'SELECT NOMBRES, APELLIDOS FROM USUARIOS WHERE EMAIL ="'.$email.'" AND CLAVE="'.$clave.'";';
+$query = 'SELECT * FROM USUARIOS WHERE EMAIL ="'.$email.'" AND CLAVE="'.$clave.'";';
 $result = mysqli_query($conn, $query); 
 $rowCount = mysqli_num_rows($result);
 if ($rowCount==0)
@@ -21,10 +21,11 @@ else
   {
     while ($fila = $result->fetch_row()) 
     {
-        $_SESSION["nombres"]=$fila["nombres"];
-        $_SESSION["apellidos"]=$fila["apellidos"];
+        $_SESSION["nombres"]=$fila[1];
+        $_SESSION["apellidos"]=$fila[2];
     }
-    $resultado->close();
+    $result->close();
   }
 }
+
 

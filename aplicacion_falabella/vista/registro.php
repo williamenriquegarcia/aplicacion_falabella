@@ -15,20 +15,31 @@
           <a href="#" class="brand-logo">Bienvenido</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="../index.php">Inicio</a></li>
-            <li><a href="#">Registro</a></li>
+            
             <?php 
-              if (isset($_SESSION['nombres']))
-              {
+            session_start();
+            if (isset($_SESSION['nombres']))
+            {
             ?>
-            <li><a href="../vista/login.php">Login</a></li>
-          <?php
-           } 
-           else
-          {
-           ?>
-           <li><a href="../vista/cerrarsesion.php">Cerrar sesion</a></li>
-           <?php
-          }
+            <li>
+              <a href="#">
+                <?php  
+                  echo $_SESSION['nombres'];
+                ?>
+              </a>
+            </li>
+            <li><a href="../vista/cerrarsesion.php">Cerrar sesion</a></li>
+            
+            <?php
+             } 
+             else
+            {
+             ?>
+             <li><a href="../vista/registro.php">Registro</a></li>
+             <li><a href="../vista/login.php">Login</a></li>
+             
+             <?php
+            }
           ?>
           </ul>
         </div>
@@ -78,5 +89,6 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       <script src="js/registro.js"></script>
+      <script src="js/cerrar.js"></script>
     </body>
   </html>
